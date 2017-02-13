@@ -37,30 +37,33 @@ html, body {
       html #main #jumbotron #particles-js, body #main #jumbotron #particles-js {
         position: absolute;
         top: 10%;
-        width: 50%;
-        height: 50%;
-        right: 20%; }
+        width: 100%;
+        height: 50%; }
       html #main #jumbotron .title, body #main #jumbotron .title {
         font-size: 3em;
         position: relative;
         bottom: 10%;
-        color: #F6FAFB; }
+        color: #F6FAFB;
+        font-weight: 700; }
       html #main #jumbotron .subtitle, body #main #jumbotron .subtitle {
         font-size: 1.5em;
         position: relative;
         bottom: 8%;
-        color: #F6FAFB; }
-      html #main #jumbotron button, body #main #jumbotron button {
+        color: #F6FAFB;
+        font-weight: 600;
+        text-align: center; }
+      html #main #jumbotron a, body #main #jumbotron a {
         position: relative;
+        font-weight: 600;
         bottom: 5%;
-        font-size: 1em;
+        font-size: 1.2em;
         background-color: #FF380E;
         border: none;
         border-radius: 100px;
-        padding: 0.5% 1% 0.5% 1%;
+        padding: 0.5% 2% 0.5% 2%;
         color: #FFFFFF;
         transition: background-color 1s; }
-      html #main #jumbotron button:hover, body #main #jumbotron button:hover {
+      html #main #jumbotron a:hover, body #main #jumbotron a:hover {
         background-color: #223F49; }
   html nav, body nav {
     background-color: #FFFFFF;
