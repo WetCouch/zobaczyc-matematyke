@@ -8,6 +8,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Dosis', sans-serif;
+  overflow: auto;
 
 
   footer {
@@ -17,6 +18,7 @@ html, body {
     display: flex;
     flex-direction: row;
     font-size: 2em;
+    overflow: auto;
     a {
       color: $redCol;
       padding-left: 2em;
@@ -31,6 +33,7 @@ html, body {
 
   #main {
     height: 90%;
+    overflow: auto;
 
     #sections {
       background-color: $darkWhite;
@@ -41,6 +44,9 @@ html, body {
       justify-content: space-around;
       .sect-link {
         display: flex;
+        min-height: 380px;
+        margin-top: 30px;
+        margin-bottom: -30px;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -123,6 +129,7 @@ html, body {
   nav {
     background-color: $whiteCol;
     height: 6%;
+    min-height: 60px;
     display: flex;
     align-items: center;
     h1 {

@@ -1,14 +1,16 @@
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Dosis', sans-serif; }
+  font-family: 'Dosis', sans-serif;
+  overflow: auto; }
   html footer, body footer {
     height: 4%;
     width: 100%;
     background-color: #F6FAFB;
     display: flex;
     flex-direction: row;
-    font-size: 2em; }
+    font-size: 2em;
+    overflow: auto; }
     html footer a, body footer a {
       color: #FF380E;
       padding-left: 2em; }
@@ -17,7 +19,8 @@ html, body {
       html footer h4 a, body footer h4 a {
         color: #223F49; }
   html #main, body #main {
-    height: 90%; }
+    height: 90%;
+    overflow: auto; }
     html #main #sections, body #main #sections {
       background-color: #F6FAFB;
       height: 35%;
@@ -27,6 +30,9 @@ html, body {
       justify-content: space-around; }
       html #main #sections .sect-link, body #main #sections .sect-link {
         display: flex;
+        min-height: 380px;
+        margin-top: 30px;
+        margin-bottom: -30px;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -94,6 +100,7 @@ html, body {
   html nav, body nav {
     background-color: #FFFFFF;
     height: 6%;
+    min-height: 60px;
     display: flex;
     align-items: center; }
     html nav h1, body nav h1 {
