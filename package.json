@@ -1,0 +1,9 @@
+{
+  "name": "zobaczycmatematyke",
+  "version": "0.1.0",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.3.1"
+  }
+}
