@@ -9,8 +9,28 @@ html, body {
   width: 100%;
   font-family: 'Dosis', sans-serif;
 
+
+  footer {
+    height: 4%;
+    width: 100%;
+    background-color: $darkWhite;
+    display: flex;
+    flex-direction: row;
+    font-size: 2em;
+    a {
+      color: $redCol;
+      padding-left: 2em;
+    }
+    h4 {
+      margin-left: 5%;
+      a {
+        color: $darkBlue;
+      }
+    }
+  }
+
   #main {
-    height: 94%;
+    height: 90%;
 
     #sections {
       background-color: $darkWhite;
@@ -21,9 +41,10 @@ html, body {
       justify-content: space-around;
       .sect-link {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 20%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 22%;
         max-width: 300px;
         -webkit-box-shadow: 1px 1px 8px 0;
         -moz-box-shadow: 1px 1px 8px 0;
@@ -33,7 +54,19 @@ html, body {
         background-color: $whiteCol;
         color: $darkBlue;
         h2 {
+          font-size: 2em;
+          padding: 5%;
+          text-align: center;
+        }
+        p {
           font-size: 1.5em;
+          text-align: center;
+          padding: 2%;
+        }
+        a {
+          font-size: 1.5em;
+          text-align: center;
+          color: $redCol;
           padding: 5%;
         }
       }
@@ -54,7 +87,7 @@ html, body {
         height:50%;
       }
       .title {
-        font-size: 3em;
+        font-size: 3.5em;
         position: relative;
         bottom: 10%;
         color: $darkWhite;
@@ -103,11 +136,10 @@ html, body {
     ul {
       margin-left: auto;
       margin-right: 10%;
-      border: 1px black;
       list-style-type: none;
 
       li {
-        margin-right: 5%;
+        margin-right: 2em;
         display: inline;
         font-size: 125%;
         a {
@@ -116,4 +148,5 @@ html, body {
       }
     }
   }
+
 }
