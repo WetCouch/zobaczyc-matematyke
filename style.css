@@ -34,16 +34,22 @@ html, body {
       justify-content: center;
       align-items: center;
       flex-direction: column; }
+      html #main #jumbotron #particles-js, body #main #jumbotron #particles-js {
+        position: absolute;
+        top: 10%;
+        width: 50%;
+        height: 50%;
+        right: 20%; }
       html #main #jumbotron .title, body #main #jumbotron .title {
         font-size: 3em;
         position: relative;
         bottom: 10%;
-        color: #FFFFFF; }
+        color: #F6FAFB; }
       html #main #jumbotron .subtitle, body #main #jumbotron .subtitle {
         font-size: 1.5em;
         position: relative;
         bottom: 8%;
-        color: #FFFFFF; }
+        color: #F6FAFB; }
       html #main #jumbotron button, body #main #jumbotron button {
         position: relative;
         bottom: 5%;

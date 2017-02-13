@@ -47,17 +47,24 @@ html, body {
       align-items: center;
       flex-direction: column;
 
+      #particles-js {
+        position: absolute;
+        top:10%;
+        width:50%;
+        height:50%;
+        right: 20%;
+      }
       .title {
         font-size: 3em;
         position: relative;
         bottom: 10%;
-        color: $whiteCol;
+        color: $darkWhite;
       }
       .subtitle {
         font-size: 1.5em;
         position: relative;
         bottom: 8%;
-        color: $whiteCol;
+        color: $darkWhite;
       }
       button {
         position: relative;
