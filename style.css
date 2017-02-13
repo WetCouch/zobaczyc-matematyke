@@ -59,7 +59,7 @@ html, body {
       justify-content: center;
       align-items: center;
       flex-direction: column; }
-      html #main #jumbotron #particles-js, body #main #jumbotron #particles-js {
+      html #main #jumbotron .particles-front, body #main #jumbotron .particles-front {
         position: absolute;
         top: 10%;
         width: 100%;
@@ -76,7 +76,8 @@ html, body {
         bottom: 8%;
         color: #F6FAFB;
         font-weight: 600;
-        text-align: center; }
+        text-align: center;
+        padding: 3%; }
       html #main #jumbotron a, body #main #jumbotron a {
         position: relative;
         font-weight: 600;
@@ -112,5 +113,29 @@ html, body {
         font-size: 125%; }
         html nav ul li a, body nav ul li a {
           color: #223F49; }
+  html article, body article {
+    background-color: #F6FAFB;
+    height: 94%; }
+    html article .lead, body article .lead {
+      background-color: #18C1FF;
+      height: 35%; }
+      html article .lead .particles-article, body article .lead .particles-article {
+        position: absolute;
+        height: 33%;
+        width: 100%;
+        top: 6%; }
+      html article .lead h1, body article .lead h1 {
+        color: #FFFFFF;
+        font-size: 4em;
+        text-align: center;
+        position: relative;
+        top: 35%;
+        font-weight: 700; }
+    html article .content, body article .content {
+      margin-left: auto;
+      margin-right: auto;
+      height: 70%;
+      background-color: #F6FAFB;
+      width: 60%; }
 
 /*# sourceMappingURL=style.css.map */

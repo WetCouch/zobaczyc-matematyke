@@ -80,7 +80,7 @@ html, body {
       align-items: center;
       flex-direction: column;
 
-      #particles-js {
+      .particles-front {
         position: absolute;
         top:10%;
         width:100%;
@@ -100,6 +100,7 @@ html, body {
         color: $darkWhite;
         font-weight: 600;
         text-align: center;
+        padding: 3%;
       }
       a {
         position: relative;
@@ -146,6 +147,36 @@ html, body {
           color: $darkBlue;
         }
       }
+    }
+  }
+
+  article {
+    background-color: $darkWhite;
+    height: 94%;
+    .lead {
+      background-color: $blueCol;
+      height: 35%;
+      .particles-article {
+        position: absolute;
+        height: 33%;
+        width: 100%;
+        top: 6%;
+      }
+      h1 {
+        color: $whiteCol;
+        font-size: 4em;
+        text-align: center;
+        position: relative;
+        top: 35%;
+        font-weight: 700;
+      }
+    }
+    .content {
+      margin-left: auto;
+      margin-right: auto;
+      height: 70%;
+      background-color: $darkWhite;
+      width: 60%;
     }
   }
 
