@@ -121,7 +121,7 @@ html, body {
           color: #223F49; }
   html article, body article {
     background-color: #F6FAFB;
-    height: 94%; }
+    height: 140%; }
     html article .lead, body article .lead {
       background-color: #18C1FF;
       height: 35%; }
@@ -138,10 +138,19 @@ html, body {
         top: 35%;
         font-weight: 700; }
     html article .content, body article .content {
+      padding-top: 5%;
       margin-left: auto;
       margin-right: auto;
-      height: 70%;
+      height: 60%;
       background-color: #F6FAFB;
       width: 60%; }
+      html article .content p, body article .content p {
+        font-size: 1.5em;
+        color: #223F49;
+        margin-top: 5%; }
+      html article .content .graph, body article .content .graph {
+        margin: 5%;
+        width: 100%;
+        height: 30%; }
 
 /*# sourceMappingURL=style.css.map */

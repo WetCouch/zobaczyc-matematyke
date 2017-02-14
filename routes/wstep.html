@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../bulma.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis:500,700" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../vis.css">
+    <script src="../vis.js"></script>
 </head>
 <body>
 <nav>
@@ -23,8 +25,45 @@
     </section>
     <section class="content">
         <p>
-
+            Grafem nazywamy zbiór wierzchołków połączonych krawędziami. Każda krawędź ma dwa końca, które są wierzchołkami w grafie. Wierzchołki należące do krawędzi nazywamy jej końcami. Natomiast krawędzie mogą mieć wyznaczony kierunek, wtedy nazywany jest grafem skierowanym. Dodatkowo mogą one posiadać wagę, a więc liczbę określającą jakąś zależność.
         </p>
+        <p>Grafy proste, czyli nieskierowane są uporządkowanymi parami G := (V, E), gdzie V jest niepustym zbiorem (a jego elementy to wierzchołki), a E jest rodziną dwuelementowych podzbiorów zbioru wierzchołków V (zwanych krawędziami.</p>
+        <p>Graf skierowany to uporządkowana para G := (V, a), gdzie V jest zbiorem wierzchołków, natomiast ‚a’ jest zbiorem uporządkowanych par różnych wierzchołków ze zbioru V, zwanych krawędziami skierowanymi lub łukami.</p>
+        <p>Stopień wierzchołka to liczba krawędzi łączących się z danym wierzchołkiem. Pętle liczone są jako dwie krawędzie. Stopień wierzchołka v oznacza się poprzez deg(v).
+            A więc przykładowo w poniższym grafie deg(b) = 3, a deg(c) = 4.</p>
+        <div class="graph" id="vis1"></div>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                {id: 1, label: 'a'},
+                {id: 2, label: 'b'},
+                {id: 3, label: 'c'},
+                {id: 4, label: 'd'},
+                {id: 5, label: 'e'}
+            ]);
+
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 1, to: 3},
+                {from: 1, to: 2},
+                {from: 2, to: 4},
+                {from: 2, to: 5},
+                {from: 3, to: 5},
+                {from: 3, to: 3}
+            ]);
+
+            // create a network
+            var container = document.getElementById('vis1');
+
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {};
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
     </section>
 </article>
 <footer><h4><a href="https://github.com/WetCouch">Wojciech Janoszek</a></h4> <a href="about.html">O stronie</a></footer>

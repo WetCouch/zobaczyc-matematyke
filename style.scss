@@ -158,7 +158,7 @@ html, body {
 
   article {
     background-color: $darkWhite;
-    height: 94%;
+    height: 140%;
     .lead {
       background-color: $blueCol;
       height: 35%;
@@ -178,11 +178,22 @@ html, body {
       }
     }
     .content {
+      padding-top: 5%;
       margin-left: auto;
       margin-right: auto;
-      height: 70%;
+      height: 60%;
       background-color: $darkWhite;
       width: 60%;
+      p {
+        font-size: 1.5em;
+        color: $darkBlue;
+        margin-top: 5%;
+      }
+      .graph {
+        margin: 5%;
+        width: 100%;
+        height: 30%;
+      }
     }
   }
 
