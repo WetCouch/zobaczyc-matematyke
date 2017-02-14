@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../bulma.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis:500,700" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../vis.css">
+    <script src="../vis.js"></script>
 </head>
 <body>
 <nav>
@@ -16,13 +18,218 @@
         <li><a href="praktyka.html">Praktyczne zastosowania</a></li>
     </ul>
 </nav>
-<article>
-    <section class="lead">
+<article style="height: 250%;">
+    <section class="lead" style="height: 20%;">
         <h1>Praktyczne Zastosowania</h1>
-        <div id="particles-js" class="particles-article"></div>
+        <div id="particles-js" class="particles-article" style="height: 50%;"></div>
     </section>
     <section class="content">
+        <p>Teoria Grafów dzięki swojej prostocie ma bardzo wiele różnych zastosowań w technice, naukach fizycznych, społecznych, biologicznych i chemicznych, czy medycydynie. Zastosowanie znajduje także przy produkcji gier oraz aplikacji. <br>
+        Na bazie grafów powstają między innymi systemy poruszania się Sztucznej Inteligencji po planszy, a nawet idee całych gier, jak na przykład w przypadku The Settlers. Idealnym przykładem praktycznego zastosowania teorii grafów jest algorytm Dijskstry, stosowany w wielu różnych produktach, w tym między innymi w Google Maps, do wyznaczania trasy.</p>
+        <p>Opracowany został przez holenderskiego informatyka Edsgera Dijkstrę. Algorytm ten mając dany graf znajduje odległości od źródła do wszystkich pozostałych wierzchołków, dzięki czemu może między innymi znajdywać najkrótszą ścieżkę z danego źródła do ustalonego wierzchołka.</p>
+        <p>Jeśli z krawędziami grafu związane są wagi, to każda ze ścieżek ma swój koszt przejścia równy sumie wag krawędzi łączących poszczególne wierzchołki ścieżki. Algorytm Dijkstry pozwala na znalezienie najkrótszej ścieżki, a więc takiej o najmniejszym koszcie przejścia.</p>
+        <p>Działa to poprzez stworzenie dwóch zbiorów - S i Q. Zbiór S jest początkowo pusty, tam znajdują się wierzchołki przetworzone przez algorytm, natomiast w zbiorze Q znajdują się wierzchołki czekające na przetworzenie. Następnie tworzone są dwie tablice d i p o n elementach, gdzie n oznacza liczbę wierzchołków w grafie.</p>
+        <p>Elementy tablicy d zawierają minimalne koszty dojścia do poszczególnych wierzchołków ze źródła, natomiast  elementy tablicy p przechowują numery wierzchołków znajdujących na ścieżce przed danym wierzchołkiem.</p>
+        <div>
+            <div class="graph" id="vis1"></div>
+            <div><table>
+                <tr>
+                    <th>u</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <th>d[u]</th>
+                    <td>0</td>
+                    <td>∞</td>
+                    <td>∞</td>
+                    <td>∞</td>
+                    <td>∞</td>
+                </tr>
+                <tr>
+                    <th>p[u]</th>
+                    <td>-1</td>
+                    <td>-1</td>
+                    <td>-1</td>
+                    <td>-1</td>
+                    <td>-1</td>
+                </tr>
+            </table></div>
+        </div>
+        <p>Następnie w zbiorze Q szukamy wierzchołka u o najmniejszym koszcie dojścia d[u]. Na początku będzie to wierzchołek-źródło 0, dla którego d[0] = 0. Przenosimy ten wierzchołek ze zbioru Q do zbioru S, a następnie przeglądamy wierzchołki sąsiadujące.</p>
+        <div>
+            <div class="graph" id="vis2"></div>
+            <table>
+                <tr>
+                    <th>u</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <th>d[u]</th>
+                    <td>0</td>
+                    <td>∞</td>
+                    <td>∞</td>
+                    <td>∞</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th>p[u]</th>
+                    <td>-1</td>
+                    <td>-1</td>
+                    <td>-1</td>
+                    <td>-1</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </div>
+        <p>Czynność ta jest powtarzana dopóki wszystkie wierzchołki ze zbioru Q nie zostaną przeniesione do zbioru S a do obu tablic nie zostaną wpisane odpowiednie wartości tak, by d[u] równało się najmniejszej możliwej sumie. Tak, że w przypadku kiedy do jednego wierzchołka prowadzi kilka ścieżek, do tablic zawsze wpisywana jest krótsza.</p>
+        <div>
+            <div class="graph" id="vis3"></div>
+            <table>
+                <tr>
+                    <th>u</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <th>d[u]</th>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th>p[u]</th>
+                    <td>-1</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </div>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                {id: 1, label: '0', color: '#FF380E'},
+                {id: 2, label: '1'},
+                {id: 3, label: '2'},
+                {id: 4, label: '3'},
+                {id: 5, label: '4'}
+            ]);
 
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 1, to: 2, label: '3'},
+                {from: 2, to: 3, label: '1'},
+                {from: 3, to: 4, label: '2'},
+                {from: 1, to: 5, label: '3'},
+                {from: 5, to: 4, label: '4'}
+            ]);
+
+            // create a network
+            var container = document.getElementById('vis1');
+
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {
+                height: '200px',
+                width: '50%',
+                edges: {
+                    arrows: 'to'
+                }
+            };
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                {id: 1, label: '0', color: '#FF380E'},
+                {id: 2, label: '1'},
+                {id: 3, label: '2'},
+                {id: 4, label: '3'},
+                {id: 5, label: '4', color: '#FF380E'}
+            ]);
+
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 1, to: 2, label: '3'},
+                {from: 2, to: 3, label: '1'},
+                {from: 3, to: 4, label: '2'},
+                {from: 1, to: 5, label: '3'},
+                {from: 5, to: 4, label: '4'}
+            ]);
+
+            // create a network
+            var container = document.getElementById('vis2');
+
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {
+                height: '200px',
+                width: '50%',
+                edges: {
+                    arrows: 'to'
+                }
+            };
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                {id: 1, label: '0', color: '#FF380E'},
+                {id: 2, label: '1', color: '#FF380E'},
+                {id: 3, label: '2', color: '#FF380E'},
+                {id: 4, label: '3', color: '#FF380E'},
+                {id: 5, label: '4', color: '#FF380E'}
+            ]);
+
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 1, to: 2, label: '3'},
+                {from: 2, to: 3, label: '1'},
+                {from: 3, to: 4, label: '2'},
+                {from: 1, to: 5, label: '3'},
+                {from: 5, to: 4, label: '4'}
+            ]);
+
+            // create a network
+            var container = document.getElementById('vis3');
+
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {
+                height: '200px',
+                width: '50%',
+                edges: {
+                    arrows: 'to'
+                }
+            };
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
     </section>
 </article>
 <footer><h4><a href="https://github.com/WetCouch">Wojciech Janoszek</a></h4> <a href="about.html">O stronie</a></footer>

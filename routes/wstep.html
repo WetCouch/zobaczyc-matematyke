@@ -31,7 +31,7 @@
         <p>Graf skierowany to uporządkowana para G := (V, a), gdzie V jest zbiorem wierzchołków, natomiast ‚a’ jest zbiorem uporządkowanych par różnych wierzchołków ze zbioru V, zwanych krawędziami skierowanymi lub łukami.</p>
         <p>Stopień wierzchołka to liczba krawędzi łączących się z danym wierzchołkiem. Pętle liczone są jako dwie krawędzie. Stopień wierzchołka v oznacza się poprzez deg(v).
             A więc przykładowo w poniższym grafie deg(b) = 3, a deg(c) = 4.</p>
-        <div class="graph" id="vis1"></div>
+        <div class="graph" id="vis"></div>
         <script type="text/javascript">
             var nodes = new vis.DataSet([
                 {id: 1, label: 'a'},
@@ -52,7 +52,7 @@
             ]);
 
             // create a network
-            var container = document.getElementById('vis1');
+            var container = document.getElementById('vis');
 
             // provide the data in the vis format
             var data = {
@@ -64,6 +64,7 @@
             // initialize your network!
             var network = new vis.Network(container, data, options);
         </script>
+        <a href="teoria.html">Dalej</a>
     </section>
 </article>
 <footer><h4><a href="https://github.com/WetCouch">Wojciech Janoszek</a></h4> <a href="about.html">O stronie</a></footer>

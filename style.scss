@@ -161,10 +161,10 @@ html, body {
     height: 140%;
     .lead {
       background-color: $blueCol;
-      height: 35%;
+      height: 30%;
       .particles-article {
         position: absolute;
-        height: 33%;
+        height: 40%;
         width: 100%;
         top: 6%;
       }
@@ -193,6 +193,15 @@ html, body {
         margin: 5%;
         width: 100%;
         height: 30%;
+      }
+      a {
+        position: relative;
+        top: 5em;
+        left: 40%;
+        color: $redCol;
+        text-align: center;
+        padding: 10%;
+        font-size: 2em;
       }
     }
   }

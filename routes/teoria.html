@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../bulma.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis:500,700" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../vis.css">
+    <script src="../vis.js"></script>
 </head>
 <body>
 <nav>
@@ -22,7 +24,43 @@
         <div id="particles-js" class="particles-article"></div>
     </section>
     <section class="content">
+        <p>Wszystko zaczęło się w roku 1736, kiedy matematyk Leonhard Euler postanowił rozwiązać zagadnienie mostów królewieckich. Zgodnie z treścią zagadnienia w Królewcu znajdowały się dwie wyspy, do których prowadziło siedem mostów (jak na rysunku). Problem polegał na pytaniu o to, czy istniała możliwość przejścia przez wszystkie te mosty tak, aby każdy z nich przekroczyć tylko raz. </p>
+        <div class="graph" id="vis"></div>
+        <p>Twierdzenie Eulera<br>
+            W grafie istnieje cykl Eulera wtedy i tylko wtedy, gdy każdy wierzchołek tego grafu ma stopień parzysty, tzn. gdy w każdym wierzchołku tego grafu spotyka się parzysta liczba krawędzi.</p>
+        <a href="praktyka.html">Dalej</a>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                {id: 1, label: 'a'},
+                {id: 2, label: 'b'},
+                {id: 3, label: 'c'},
+                {id: 4, label: 'd'}
+            ]);
 
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 1, to: 2},
+                {from: 1, to: 2},
+                {from: 1, to: 3},
+                {from: 1, to: 4},
+                {from: 1, to: 4},
+                {from: 2, to: 3},
+                {from: 4, to: 3}
+            ]);
+
+            // create a network
+            var container = document.getElementById('vis');
+
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {};
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
     </section>
 </article>
 <footer><h4><a href="https://github.com/WetCouch">Wojciech Janoszek</a></h4> <a href="about.html">O stronie</a></footer>
