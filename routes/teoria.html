@@ -18,16 +18,28 @@
         <li><a href="praktyka.html">Praktyczne zastosowania</a></li>
     </ul>
 </nav>
-<article>
-    <section class="lead">
+<article style="height: 300%; min-height: 4000px;">
+    <section class="lead" style="height: 15%;">
         <h1>Teoria Grafów</h1>
-        <div id="particles-js" class="particles-article"></div>
+        <div id="particles-js" class="particles-article" style=" min-height: 600px;"></div>
     </section>
     <section class="content">
         <p>Wszystko zaczęło się w roku 1736, kiedy matematyk Leonhard Euler postanowił rozwiązać zagadnienie mostów królewieckich. Zgodnie z treścią zagadnienia w Królewcu znajdowały się dwie wyspy, do których prowadziło siedem mostów (jak na rysunku). Problem polegał na pytaniu o to, czy istniała możliwość przejścia przez wszystkie te mosty tak, aby każdy z nich przekroczyć tylko raz. </p>
         <div class="graph" id="vis"></div>
         <p>Twierdzenie Eulera<br>
             W grafie istnieje cykl Eulera wtedy i tylko wtedy, gdy każdy wierzchołek tego grafu ma stopień parzysty, tzn. gdy w każdym wierzchołku tego grafu spotyka się parzysta liczba krawędzi.</p>
+        <p>Po grafie eulerowskim możemy wyróżnić także graf hamiltonowski, a więc zawierający ścieżkę przechodzącą przez każdy wierzchołek dokładnie jeden raz, tak zwaną ścieżkę Hamiltona. Szczególnym przypadkiem grafu hamiltonowskiego jest taki, który zawiera cykl Hamiltona, a więc zawierający ścieżkę przechodzącą przez każdy wierzchołek dokładnie raz, za wyjątkiem pierwszego wierzchołka, który odwiedzany jest dwa razy.</p>
+        <div class="graph" id="vis2"></div>
+        <p>Grafy hamiltonowskie związane są z problemem komiwojażera, czyli zagadnieniem optymalizacyjnym polegającym na znalezieniu minimalnego cyklu Hamiltona. Najczęściej ilustrowany jest on wędrownym sprzedawcą, który ma odwiedzić n miast, ale każde z nich tylko raz, używając najbardziej optymalnej drogi. </p>
+        <p>Trudność polega jednak na tym, że w przypadku grafów hamiltonowskich brakuje twierdzenia takiego jak twierdzenie Eulera dla grafów Eulera, przez co nie są znane algorytmy umożliwiające rozwiązanie tego problemu w czasie wielomianowym.</p>
+        <p>Istnieją jedynie twierdzenia pozwalające na podstawie cech grafu określić, że jest on grafem hamiltonowskim, jednak jest to implikacja jednostronna - a więc istnieje nieskończenie wiele grafów hamiltonowskich nie posiadających tych cech. Twierdzenia te są jednak wykorzystywane między innymi do optymalnego i skutecznego testowania systemów komputerowych.</p>
+        <p>Niech G oznacza graf, V(G) zbiór jego wierzchołków, E(G) zbiór krawędzi, |A| moc zbioru, v pojedynczy wierzchołek grafu, a deg(v) stopień wierzchołka.</p>
+        <p>Twierdzenie Ore: Jeżeli w grafie prostym G o n wierzchołkach, n > 2, zachodzi następująca nierówność:<br>
+            deg(v) + deg(u) ≥ n-1 <br>
+            dla każdej pary niepołączonych bezpośrednio krawędzią wierzchołków u i v, to graf G posiada cykl Hamiltona.</p>
+        <p>Twierdzenie Diraca: Jeśli graf G nie ma pętli, ani krawędzi wielokrotnych, czyli jest grafem prostym, oraz<br>
+            |V(G)| ≥ 3 <br> oraz jeśli deg(v) ≥ (|V(G)|)÷2 <br> dla każdego wierzchołka w G, to jest on hamiltonowski.</p>
+
         <a href="praktyka.html">Dalej</a>
         <script type="text/javascript">
             var nodes = new vis.DataSet([
@@ -57,6 +69,40 @@
                 edges: edges
             };
             var options = {};
+
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+        </script>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                {id: 1, label: 'a'},
+                {id: 2, label: 'b'},
+                {id: 3, label: 'c'},
+                {id: 4, label: 'd'}
+            ]);
+
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 1, to: 2, color: '#FF380E'},
+                {from: 1, to: 4},
+                {from: 2, to: 4, color: '#FF380E'},
+                {from: 2, to: 3},
+                {from: 4, to: 3, color: '#FF380E'}
+            ]);
+
+            // create a network
+            var container = document.getElementById('vis2');
+
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {
+                edges: {
+                    arrows: 'to'
+                }
+            };
 
             // initialize your network!
             var network = new vis.Network(container, data, options);
